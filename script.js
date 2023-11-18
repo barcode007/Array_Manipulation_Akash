@@ -3,6 +3,7 @@ let data = [
   { name: "john", age: 24, profession: "developer" },
   { name: "jane", age: 27, profession: "admin" },
 ];
+//Author Akash
 
 // Function to print developers
 function printDeveloper() {
@@ -14,11 +15,13 @@ function printDeveloper() {
 function addData() {
   const newData = { name: "Akash", age: 23, profession: "Musician" };
   data.push(newData);
+  console.log("data added");
 }
 
 // Function to remove admins
 function removeAdmin() {
   data = data.filter(person => person.profession !== "admin");
+  console.log("Admin removed succesfully")
 }
 
 // Function to concatenate array
@@ -28,15 +31,15 @@ function concatenateArray() {
     { name: "Sherlock", age: 27, profession: "detective" }
   ];
   data = data.concat(newData);
+  console.log("array concatinated");
 }
-
-// ... (Define other functions for the remaining tasks)
 
 // Function to update John's profession
 function updateJohnsProfession() {
   const john = data.find(person => person.name.toLowerCase() === "john");
   if (john) {
     john.profession = "architect";
+    console.log("Updated John's Profession")
   }
 }
 
@@ -46,9 +49,12 @@ function checkAgeAbove25() {
   if (peopleAbove25.length > 0) {
     console.log(peopleAbove25);
   } 
+  else{
+    console.log("No one is above 25 years")
+  }
 }
 
-
+//will sort by age ascending
 function sortByAge() {
   const sortedByAge = data.slice().sort((a, b) => a.age - b.age);
   console.log(sortedByAge);
@@ -63,14 +69,12 @@ function averageAge() {
 }
 
 
-
 // Function to count occurrences of unique professions
 function uniqueProfessions() {
   const uniqueProfessionsSet = new Set(data.map(person => person.profession));
   const uniqueProfessionsArray = Array.from(uniqueProfessionsSet);
   console.log(uniqueProfessionsArray);
 }
-
 
 
 // Function to get total professions
@@ -82,7 +86,7 @@ function getTotalProfessions() {
   console.log(professionCount);
 }
 
-// Attach event listeners to buttonss
+// Event listners
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("button[data-task='printDevelopers']").addEventListener("click", printDeveloper);
   document.querySelector("button[data-task='addData']").addEventListener("click", addData);
